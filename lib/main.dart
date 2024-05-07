@@ -12,21 +12,8 @@ void main() {
   );
 }
 
-class MainApp extends StatefulWidget {
+class MainApp extends StatelessWidget {
   const MainApp({super.key});
-
-  @override
-  State<MainApp> createState() => _MainAppState();
-}
-
-class _MainAppState extends State<MainApp> {
-  @override
-  void initState() {
-    var data = Provider.of<UserProvider>(context, listen: false);
-    // TODO: implement initState
-    super.initState();
-    data.fetchData();
-  }
 
   @override
   Widget build(BuildContext context) {

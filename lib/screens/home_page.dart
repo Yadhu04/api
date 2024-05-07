@@ -1,6 +1,8 @@
+import 'package:api/Provider/user_provider.dart';
 import 'package:api/screens/chat_screen.dart';
 import 'package:api/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -18,6 +20,14 @@ class _HomePageState extends State<HomePage> {
     });
 
     print(Selectedindex);
+  }
+
+  @override
+  void initState() {
+    var data = Provider.of<UserProvider>(context, listen: false);
+    // TODO: implement initState
+    super.initState();
+    data.fetchData();
   }
 
   @override

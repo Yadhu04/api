@@ -1,4 +1,5 @@
 import 'package:api/Provider/user_provider.dart';
+import 'package:api/components/my_list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -61,38 +62,11 @@ class ChatPage extends StatelessWidget {
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
                       separatorBuilder: (context, index) => const SizedBox(
-                        height: 15,
+                        height: 20,
                       ),
                       itemCount: user.searchedList!.length,
                       itemBuilder: (context, index) {
-                        return Container(
-                          child: Row(
-                            children: [
-                              const CircleAvatar(
-                                minRadius: 30,
-                              ),
-                              const SizedBox(
-                                width: 15,
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    user.searchedList![index].name,
-                                    style: const TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 15),
-                                  ),
-                                  Text(
-                                    user.searchedList![index].company.bs,
-                                    style:
-                                        const TextStyle(color: Colors.black45),
-                                  )
-                                ],
-                              )
-                            ],
-                          ),
-                        );
+                        return MyListTile(index: index);
                       },
                     )
                   ],
